@@ -18,9 +18,22 @@ export class RecipesService {
     return recipe;
   }
 
-  search(dish: string): Recipe[] {
+  search(query: string): Recipe[] {
+    const lowerCaseQuery = query.toLowerCase();
+
+    const matchingCategory = cookbook.categories.find((category) =>
+      category.name.toLowerCase().includes(lowerCaseQuery),
+    );
+
+    if (matchingCategory) {
+      const dishesFromCategory = matchingCategory.dishes.map(
+        (dishId) => cookbook.dishes[dishId],
+      );
+      return dishesFromCategory.filter(Boolean);
+    }
+
     return this.recipes.filter((recipe) =>
-      recipe.title.toLowerCase().includes(dish.toLowerCase()),
+      recipe.title.toLowerCase().includes(lowerCaseQuery),
     );
   }
 
