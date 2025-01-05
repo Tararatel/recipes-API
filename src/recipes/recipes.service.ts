@@ -1,16 +1,17 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { Recipe } from './entities/recipe.entity';
+import cookbook from '../cookbook';
 
 @Injectable()
 export class RecipesService {
-  private recipes: Recipe[] = [];
+  private recipes: Recipe[] = Object.values(cookbook.dishes);
 
   getRecipes(): Recipe[] {
     return this.recipes;
   }
 
-  getRecipe(id: number): Recipe {
-    const recipe = this.recipes.find((recipe) => recipe.id === +id);
+  getRecipe(id: string): Recipe {
+    const recipe = this.recipes.find((recipe) => recipe.id === id);
     if (!recipe) {
       throw new NotFoundException(`Рецепт с id ${id} не найден`);
     }
@@ -23,9 +24,9 @@ export class RecipesService {
     );
   }
 
-  remove(id: number): void {
+  remove(id: string): void {
     this.getRecipe(id);
-    this.recipes = this.recipes.filter((recipe) => recipe.id !== +id);
+    this.recipes = this.recipes.filter((recipe) => recipe.id !== id);
   }
 
   create(recipe: Recipe) {
@@ -36,11 +37,16 @@ export class RecipesService {
       ...recipe,
     };
     this.recipes.push(newRecipe);
+    return newRecipe;
   }
 
-  update(id: number, updateData: Partial<Recipe>): Recipe {
+  update(id: string, updateData: Partial<Recipe>): Recipe {
     const recipe = this.getRecipe(id);
     Object.assign(recipe, updateData);
     return recipe;
+  }
+
+  reset() {
+    this.recipes = [...Object.values(cookbook.dishes)];
   }
 }

@@ -10,6 +10,7 @@ import {
 } from '@nestjs/common';
 import { RecipesService } from './recipes.service';
 import { Recipe } from './entities/recipe.entity';
+import { CreateRecipeDto, UpdateRecipeDto } from './dto/create-recipe.dto';
 
 @Controller('api/recipes')
 export class RecipesController {
@@ -27,21 +28,27 @@ export class RecipesController {
 
   @Get('/:id')
   getRecipe(@Param('id') recipeId: string): Recipe {
-    return this.recipesService.getRecipe(Number(recipeId));
+    return this.recipesService.getRecipe(recipeId);
   }
 
   @Post()
-  create(@Body() recipeData) {
+  create(@Body() recipeData: CreateRecipeDto) {
     return this.recipesService.create(recipeData);
+  }
+
+  @Post('reset')
+  reset() {
+    this.recipesService.reset();
+    return { message: 'Данные сброшены к изначальному состоянию' };
   }
 
   @Delete('/:id')
   remove(@Param('id') recipeId: string) {
-    return this.recipesService.remove(Number(recipeId));
+    return this.recipesService.remove(recipeId);
   }
 
   @Patch('/:id')
-  update(@Param('id') recipeId: number, @Body() updateData: Partial<Recipe>) {
+  update(@Param('id') recipeId: string, @Body() updateData: UpdateRecipeDto) {
     return this.recipesService.update(recipeId, updateData);
   }
 }

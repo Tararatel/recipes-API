@@ -377,3 +377,5 @@ const cookbook = {
     },
   },
 };
+
+export default cookbook;

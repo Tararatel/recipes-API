@@ -1,5 +1,10 @@
+export class Ingredient {
+  name: string;
+  quantity: string;
+}
+
 export class Recipe {
-  id: number;
+  id: string;
   category: string;
   title: string;
   difficulty: string;
@@ -9,13 +14,8 @@ export class Recipe {
   recipe: string[];
 }
 
-export class Ingredient {
-  name: string;
-  quantity: string;
-}
-
 export class Category {
-  id: number;
+  id: string;
   name: string;
   description: string;
   dishes: string[];
