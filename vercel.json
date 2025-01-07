@@ -7,10 +7,10 @@
     }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "dist/main.js" },
     {
       "src": "/swagger-ui/(.*)",
       "dest": "/public/swagger-ui/$1"
-    }
+    },
+    { "src": "/(.*)", "dest": "dist/main.js" }
   ]
 }
