@@ -6,5 +6,23 @@
       "use": "@vercel/node"
     }
   ],
-  "routes": [{ "src": "/(.*)", "dest": "dist/main.js" }]
+  "routes": [
+    { "src": "/(.*)", "dest": "dist/main.js" },
+    {
+      "src": "/swagger-ui.css",
+      "dest": "/node_modules/swagger-ui-dist/swagger-ui.css"
+    },
+    {
+      "src": "/swagger-ui-bundle.js",
+      "dest": "/node_modules/swagger-ui-dist/swagger-ui-bundle.js"
+    },
+    {
+      "src": "/swagger-ui-standalone-preset.js",
+      "dest": "/node_modules/swagger-ui-dist/swagger-ui-standalone-preset.js"
+    },
+    {
+      "src": "/swagger-ui-init.js",
+      "dest": "/node_modules/swagger-ui-dist/swagger-ui-init.js"
+    }
+  ]
 }
