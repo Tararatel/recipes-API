@@ -4,6 +4,7 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
+import swaggerUiPath from 'swagger-ui-dist';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -16,9 +17,9 @@ async function bootstrap() {
 
   app.useGlobalPipes(new ValidationPipe());
 
-  // Указываем путь к статическим файлам Swagger UI
-  app.useStaticAssets(join(__dirname, '..', 'public', 'swagger-ui'), {
-    prefix: '/swagger-ui/',
+  const swaggerPath = swaggerUiPath.getAbsoluteFSPath();
+  app.useStaticAssets(swaggerPath, {
+    prefix: '/',
   });
 
   const config = new DocumentBuilder()
