@@ -16,9 +16,10 @@ async function bootstrap() {
 
   app.useGlobalPipes(new ValidationPipe());
 
-  // Убедитесь, что swagger-ui-dist правильно указывает на нужную директорию
-  const swaggerUiPath = require('swagger-ui-dist').getAbsoluteFSPath();
-  app.useStaticAssets(swaggerUiPath, { prefix: '/swagger-ui/' }); // Отдаём статические файлы с префиксом /swagger-ui/
+  // Указываем путь к статическим файлам Swagger UI
+  app.useStaticAssets(join(__dirname, '..', 'public', 'swagger-ui'), {
+    prefix: '/swagger-ui/',
+  });
 
   const config = new DocumentBuilder()
     .setTitle('Recipe API')
@@ -27,8 +28,7 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, config);
 
-  // Теперь Swagger будет доступен через /swagger-ui/
-  SwaggerModule.setup('swagger', app, document); // Изменяем Swagger URL на /swagger
+  SwaggerModule.setup('swagger', app, document);
 
   await app.listen(process.env.PORT ?? 3000);
 }
