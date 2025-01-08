@@ -11,6 +11,10 @@
       "src": "/swagger-ui/(.*)",
       "dest": "/public/swagger-ui/$1"
     },
+    {
+      "src": "/swagger-ui.css",
+      "dest": "/public/swagger-ui.css"
+    },
     { "src": "/(.*)", "dest": "dist/main.js" }
   ]
 }
