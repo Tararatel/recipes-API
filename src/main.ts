@@ -17,7 +17,7 @@ async function bootstrap() {
 
   const swaggerUiPath = require('swagger-ui-dist').getAbsoluteFSPath();
   app.useStaticAssets(swaggerUiPath, {
-    prefix: '/',
+    prefix: '/swagger-ui',
   });
 
   const config = new DocumentBuilder()
