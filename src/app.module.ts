@@ -7,7 +7,8 @@ import { join } from 'path';
   imports: [
     RecipesModule,
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'public'), // Указываем путь к папке public
+      rootPath: join(__dirname, '..', 'node_modules', 'swagger-ui-dist'),
+      serveRoot: '/swagger-ui', // Здесь указываем корневой маршрут для статических файлов
     }),
   ],
   controllers: [],
