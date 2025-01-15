@@ -1,19 +1,12 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "dist/main.js",
-      "use": "@vercel/node"
-    }
-  ],
   "routes": [
+    {
+      "src": "/images/(.*)",
+      "dest": "dist/public/$1"
+    },
     {
       "src": "/swagger-ui/(.*)",
       "dest": "dist/public/swagger-ui/$1"
-    },
-    {
-      "src": "/images/(.*)",
-      "dest": "dist/public/images/$1"
     },
     {
       "src": "/(.*)",
