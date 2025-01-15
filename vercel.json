@@ -8,16 +8,19 @@
   ],
   "routes": [
     {
-      "src": "/images/(.*)",
-      "dest": "/public/images/$1"
-    },
-    {
       "src": "/swagger-ui/(.*)",
       "dest": "/public/swagger-ui/$1"
+    },
+    {
+      "src": "/images/(.*)",
+      "dest": "/public/images/$1"
     },
     {
       "src": "/(.*)",
       "dest": "dist/main.js"
     }
-  ]
+  ],
+  "static": {
+    "public": "public"
+  }
 }
