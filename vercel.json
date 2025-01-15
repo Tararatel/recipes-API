@@ -5,19 +5,5 @@
       "src": "dist/main.js",
       "use": "@vercel/node"
     }
-  ],
-  "routes": [
-    {
-      "src": "/images/(.*)",
-      "dest": "dist/$1"
-    },
-    {
-      "src": "/swagger-ui/(.*)",
-      "dest": "dist/public/swagger-ui/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "dist/main.js"
-    }
   ]
 }

@@ -15,6 +15,7 @@ async function bootstrap() {
   });
 
   app.useStaticAssets(join(__dirname, 'public'));
+  app.useStaticAssets(join(__dirname, 'images'));
 
   app.useGlobalPipes(new ValidationPipe());
 
