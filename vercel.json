@@ -19,8 +19,5 @@
       "src": "/(.*)",
       "dest": "dist/main.js"
     }
-  ],
-  "static": {
-    "public": "public"
-  }
+  ]
 }
