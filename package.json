@@ -10,7 +10,7 @@
     "start:dev": "nest start --watch",
     "start:prod": "node dist/main.js",
     "build": "nest build && npm run copy-assets",
-    "copy-assets": "npm run copy-swagger && cp -r ./public ./dist/public",
+    "copy-assets": "npm run copy-swagger && cp -r ./public/images ./dist",
     "copy-swagger": "cp -r ./node_modules/swagger-ui-dist ./public/swagger-ui"
   },
   "dependencies": {
