@@ -9,7 +9,7 @@
   "routes": [
     {
       "src": "/images/(.*)",
-      "dest": "dist/public/$1"
+      "dest": "dist/$1"
     },
     {
       "src": "/swagger-ui/(.*)",
