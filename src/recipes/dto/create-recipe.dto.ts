@@ -61,6 +61,13 @@ export class CreateRecipeDto {
   readonly cookingTime: string;
 
   @ApiProperty({
+    example: 'https://example.com/images/img.webp',
+    description: 'Ссылка на картинку',
+  })
+  @IsString()
+  readonly img?: string;
+
+  @ApiProperty({
     example: 6,
     description: 'Количество порций',
     required: false,

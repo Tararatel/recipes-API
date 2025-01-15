@@ -5,6 +5,7 @@ export class Recipe {
   difficulty: string;
   cookingTime: string;
   servings?: number;
+  img?: string;
   ingredients: Ingredient[];
   recipe: string[];
 }
