@@ -59,6 +59,7 @@ const cookbook = {
       title: 'Оливье',
       difficulty: 'Средняя',
       cookingTime: '40 минут',
+      img: '/images/olivier.webp',
       ingredients: [
         { name: 'Картофель', quantity: '4 шт' },
         { name: 'Морковь', quantity: '2 шт' },
@@ -85,9 +86,10 @@ const cookbook = {
     mushroom_meadow: {
       id: 'mushroom_meadow',
       category: 'salads',
-      title: 'Салат Грибная поляна',
+      title: 'Салат грибная поляна',
       difficulty: 'Средняя',
       cookingTime: '1 час',
+      img: '/images/mushroom_meadow.webp',
       ingredients: [
         { name: 'Маринованные шампиньоны', quantity: '300 г' },
         { name: 'Морковь', quantity: '2 шт' },
@@ -120,6 +122,7 @@ const cookbook = {
       title: 'Селёдка под шубой',
       difficulty: 'Лёгкая',
       cookingTime: '1 час 30 минут',
+      img: '/images/herring_under_coat.webp',
       ingredients: [
         { name: 'Филе сельди', quantity: '250 г' },
         { name: 'Картофель', quantity: '300 г' },
@@ -148,6 +151,7 @@ const cookbook = {
       title: 'Бутерброды с творожным сыром и красной рыбой',
       difficulty: 'Лёгкая',
       cookingTime: '15 минут',
+      img: '/images/sandwich_with_cheese_and_fish.webp',
       ingredients: [
         { name: 'Сливочный сыр / Творожный сыр', quantity: '120 г' },
         { name: 'Слабосолёная красная рыба', quantity: '150 г' },
@@ -168,6 +172,7 @@ const cookbook = {
       title: 'Запечённая утка с розмариновым мёдом',
       difficulty: 'Средняя',
       cookingTime: '150 минут',
+      img: '/images/duck_with_honey_and_rosemary.webp',
       ingredients: [
         { name: 'Утка', quantity: '1 шт.' },
         { name: 'Мёд', quantity: '150 мл' },
@@ -190,6 +195,7 @@ const cookbook = {
       title: 'Холодец из говядины',
       difficulty: 'Средняя',
       cookingTime: '9 часов',
+      img: '/images/beef_jelly.webp',
       ingredients: [
         { name: 'Говяжья голяшка', quantity: '1 шт' },
         { name: 'Лук репчатый', quantity: '1 шт' },
@@ -210,6 +216,7 @@ const cookbook = {
       title: 'Королевские креветки на сковороде',
       difficulty: 'Средняя',
       cookingTime: '20 минут',
+      img: '/images/king_prawns_pan.webp',
       ingredients: [
         { name: 'Королевские креветки', quantity: '500 г' },
         { name: 'Чеснок', quantity: '5 зубчиков' },
@@ -230,6 +237,7 @@ const cookbook = {
       title: 'Канапе с колбасой и сыром',
       difficulty: 'Лёгкая',
       cookingTime: '20 минут',
+      img: '/images/canape_with_salami_and_cheese.webp',
       ingredients: [
         { name: 'Лаваш (тонкий)', quantity: '1–2 листа' },
         { name: 'Творожный сыр', quantity: '100 г' },
@@ -255,6 +263,7 @@ const cookbook = {
       title: 'Новогодние шишки с коньяком',
       difficulty: 'Легко',
       cookingTime: '1 час',
+      img: '/images/novogodnie_shishki_s_konyakom.webp',
       ingredients: [
         { name: 'Песочное печенье', quantity: '200 г' },
         { name: 'Сливочное масло', quantity: '100 г' },
@@ -277,6 +286,7 @@ const cookbook = {
       title: 'Новогоднее печенье',
       difficulty: 'Лёгкая',
       cookingTime: '30 минут',
+      img: '/images/new_year_cookies.webp',
       ingredients: [
         { name: 'Пшеничная мука', quantity: '300 г' },
         { name: 'Сливочное масло', quantity: '200 г' },
@@ -297,6 +307,7 @@ const cookbook = {
       title: 'Глинтвейн из красного вина',
       difficulty: 'Лёгкая',
       cookingTime: '20 минут',
+      img: '/images/mulled_wine.webp',
       ingredients: [
         { name: 'Красное сухое вино', quantity: '750 мл' },
         { name: 'Апельсин', quantity: '1 шт' },
@@ -320,6 +331,7 @@ const cookbook = {
       title: 'Облепиховый грог',
       difficulty: 'Лёгкая',
       cookingTime: '15 минут',
+      img: '/images/sea_buckthorn_grog.webp',
       ingredients: [
         { name: 'Облепиха', quantity: '200 г' },
         { name: 'Сахар', quantity: '3-4 ст.л.' },
@@ -340,6 +352,7 @@ const cookbook = {
       title: 'Гуакамоле',
       difficulty: 'Лёгкая',
       cookingTime: '15 минут',
+      img: '/images/guacamole.webp',
       ingredients: [
         { name: 'Авокадо', quantity: '3 шт' },
         { name: 'Помидор', quantity: '1 шт' },
@@ -360,6 +373,7 @@ const cookbook = {
       title: 'Итальянский соус Песто',
       difficulty: 'Лёгкая',
       cookingTime: '15 минут',
+      img: '/images/italian_pesto_sauce.webp',
       ingredients: [
         { name: 'Базилик свежий', quantity: '50 г' },
         { name: 'Оливковое масло', quantity: '50 мл' },

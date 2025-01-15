@@ -13,6 +13,8 @@ async function bootstrap() {
     allowedHeaders: 'Content-Type, Authorization',
   });
 
+  app.useStaticAssets('public');
+
   app.useGlobalPipes(new ValidationPipe());
 
   const swaggerUiPath = require('swagger-ui-dist').getAbsoluteFSPath();
