@@ -12,7 +12,7 @@
     "build": "nest build && npm run copy-assets",
     "copy-assets": "npm run copy-swagger && npm run copy-images",
     "copy-swagger": "cp -r ./node_modules/swagger-ui-dist ./public/swagger-ui",
-    "copy-images": "cp -r ./public/images ./public/images"
+     "copy-images": "cp -r ./public ./dist"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",

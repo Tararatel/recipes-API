@@ -9,11 +9,11 @@
   "routes": [
     {
       "src": "/swagger-ui/(.*)",
-      "dest": "/public/swagger-ui/$1"
+      "dest": "dist/public/swagger-ui/$1"
     },
     {
       "src": "/images/(.*)",
-      "dest": "/public/images/$1"
+      "dest": "dist/public/images/$1"
     },
     {
       "src": "/(.*)",
