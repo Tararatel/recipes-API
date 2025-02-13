@@ -31,7 +31,9 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, config);
 
-  SwaggerModule.setup('/', app, document);
+  SwaggerModule.setup('/', app, document, {
+    customSiteTitle: 'API | Книга рецептов',
+  });
 
   await app.listen(process.env.PORT ?? 3000);
 }
