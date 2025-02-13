@@ -26,8 +26,8 @@ export class IngredientDto {
 
 export class CreateRecipeDto {
   @ApiProperty({
-    example: 'Улитки по бургундски',
-    description: 'Уникальный идентификатор рецепта',
+    example: 'guacamole',
+    description: 'Уникальный идентификатор рецепта (должен быть уникальным)',
   })
   @IsString()
   readonly id: string;
@@ -40,36 +40,38 @@ export class CreateRecipeDto {
   readonly category: string;
 
   @ApiProperty({
-    example: 'Оливье',
+    example: 'Гуакамоле',
     description: 'Название рецепта',
   })
   @IsString()
   readonly title: string;
 
   @ApiProperty({
-    example: 'Средняя',
+    example: 'Лёгкая',
     description: 'Сложность приготовления рецепта',
   })
   @IsString()
   readonly difficulty: string;
 
   @ApiProperty({
-    example: '40 минут',
+    example: '15 минут',
     description: 'Время приготовления рецепта',
   })
   @IsString()
   readonly cookingTime: string;
 
   @ApiProperty({
-    example: 'https://example.com/images/img.webp',
-    description: 'Ссылка на картинку',
+    example: '/images/guacamole.webp',
+    description: 'Ссылка на изображение рецепта (необязательное поле)',
+    required: false,
   })
   @IsString()
+  @IsOptional()
   readonly img?: string;
 
   @ApiProperty({
-    example: 6,
-    description: 'Количество порций',
+    example: 4,
+    description: 'Количество порций (необязательное поле)',
     required: false,
   })
   @IsInt()
@@ -79,6 +81,10 @@ export class CreateRecipeDto {
   @ApiProperty({
     type: [IngredientDto],
     description: 'Список ингредиентов',
+    example: [
+      { name: 'Авокадо', quantity: '3 шт' },
+      { name: 'Помидор', quantity: '1 шт' },
+    ],
   })
   @IsArray()
   @ValidateNested({ each: true })
@@ -86,12 +92,94 @@ export class CreateRecipeDto {
   readonly ingredients: IngredientDto[];
 
   @ApiProperty({
-    example: ['Шаг 1: Нарезать картофель', 'Шаг 2: Смешать ингредиенты'],
+    example: [
+      'Шаг 1 - Разомните мякоть авокадо вилкой в пюре.',
+      'Шаг 2 - Очистите помидор от кожуры и нарежьте мелкими кубиками.',
+    ],
     description: 'Шаги приготовления рецепта',
   })
   @IsArray()
   @IsString({ each: true })
   readonly recipe: string[];
+}
+
+export class IngredientResponseDto {
+  @ApiProperty({
+    example: 'Авокадо',
+    description: 'Название ингредиента',
+  })
+  name: string;
+
+  @ApiProperty({
+    example: '3 шт',
+    description: 'Количество ингредиента',
+  })
+  quantity: string;
+}
+
+export class RecipeResponseDto {
+  @ApiProperty({
+    example: 'guacamole',
+    description: 'Уникальный идентификатор рецепта',
+  })
+  id: string;
+
+  @ApiProperty({
+    example: 'Салаты',
+    description: 'Категория рецепта',
+  })
+  category: string;
+
+  @ApiProperty({
+    example: 'Гуакамоле',
+    description: 'Название рецепта',
+  })
+  title: string;
+
+  @ApiProperty({
+    example: 'Лёгкая',
+    description: 'Сложность приготовления рецепта',
+  })
+  difficulty: string;
+
+  @ApiProperty({
+    example: '15 минут',
+    description: 'Время приготовления рецепта',
+  })
+  cookingTime: string;
+
+  @ApiProperty({
+    example: '/images/guacamole.webp',
+    description: 'Ссылка на изображение рецепта',
+    required: false,
+  })
+  img?: string;
+
+  @ApiProperty({
+    example: 4,
+    description: 'Количество порций',
+    required: false,
+  })
+  servings?: number;
+
+  @ApiProperty({
+    type: [IngredientResponseDto],
+    description: 'Список ингредиентов',
+    example: [
+      { name: 'Авокадо', quantity: '3 шт' },
+      { name: 'Помидор', quantity: '1 шт' },
+    ],
+  })
+  ingredients: IngredientResponseDto[];
+
+  @ApiProperty({
+    example: [
+      'Шаг 1 - Разомните мякоть авокадо вилкой в пюре.',
+      'Шаг 2 - Очистите помидор от кожуры и нарежьте мелкими кубиками.',
+    ],
+    description: 'Шаги приготовления рецепта',
+  })
+  recipe: string[];
 }
 
 export class UpdateRecipeDto extends PartialType(CreateRecipeDto) {}
